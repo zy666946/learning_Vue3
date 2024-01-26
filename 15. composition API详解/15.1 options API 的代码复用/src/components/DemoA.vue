@@ -1,5 +1,5 @@
 <script>
 export default {
-  name: 'app'
+    name: 'demoA'
 }
 </script>

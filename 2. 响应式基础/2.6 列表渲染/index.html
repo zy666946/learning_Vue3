@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style></style>
+  <script src="/vue3.js">/vue3.js</script>
+</head>
+
+<body>
+  <div id='app'>
+    
+  </div>
+  <template id='myApp'>
+    v-for也可以和template标签搭配使用
+    <br>
+    <template v-for='(value,key,index) in arr' :key='index'>
+      <span>123</span>
+      <br>
+    </template>
+    <hr />
+    遍历数字
+    <br/>
+    <p v-for='(value,index) in 3' :key='index'>{{value}}</p>
+  </template>
+  <script>
+    const app = {
+      template: '#myApp',
+      data: ()=>{
+        return{
+          arr : [1,2,3]
+        }
+      },
+      methods: {
+        
+      }
+    }
+    Vue.createApp(app).mount('#app')
+  </script>
+</body>
+
+</html>

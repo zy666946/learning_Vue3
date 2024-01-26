@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <script src="/vue3.js">/vue3.js</script>
+</head>
+
+<body>
+<div id="app">
+  
+</div>
+<template id='my-app'>
+  {{text}}
+  <my-compt></my-compt>
+</template>
+<template id="my-component">
+  {{ text }}
+</template>
+<script>
+const MyCompt = {
+  template: "#my-component",
+  data: ()=>{
+    return {
+      text: 123456
+    }
+  }
+}
+  const app = {
+    template: '#my-app',
+    //在父组件的components属性中传入对象注册局部组件 
+    components: {
+      MyCompt: MyCompt
+    },
+    data(){
+      return {
+        text: '我是根组件'
+      }
+    }
+  }
+  const App = Vue.createApp(app)
+  App.mount('#app')
+</script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <script src="/vue3.js"></script>
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+  <template id="myApp">
+    {{test}}
+    <button @click="test='456';test2='789'" type="submit">click me</button>
+  </template>
+  <script>
+    const app = {
+      template: '#myApp',
+      data: function () {
+        return {
+          test: 123,
+          test2: 456
+        }
+      },
+      methods: {
+        watchArr() {
+          alert(456)
+        }
+      },
+      computed: {
+        testComputed: function () {
+          return this.test
+        }
+      },
+      //基础用法
+      watch: {
+        test: function (newValue, oldValue) {
+          console.log(newValue, oldValue)
+        },
+        //传入配置对象
+        testComputed: {
+          handler: function (newValue, oldValue) {
+            console.log(newValue, oldValue)
+          },
+          //深度监听
+          deep: true,
+          //提前执行一次
+          immediate: true
+        },
+        //传入数组依次调用多个方法
+        test2: [
+          function () {
+            alert(123)
+          },
+          'watchArr',
+          //还可以嵌入配置对象
+          {
+            handler: function () {
+              alert(789)
+            },
+            immediate: true
+          }
+        ]
+      }
+    }
+    Vue.createApp(app).mount('#app')
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style></style>
+  <script src="/vue3.js"></script>
+</head>
+
+<body>
+  <template id="my-app">
+    绑定点击事件
+    <button @click='click1'>{{text}}</button>
+    <hr>
+    阻止事件冒泡(为父级设置self点击元素本身有效和子级设置stop阻止冒泡都可以实现)
+    <div @click.self='btnFather' style="height: 150px;width: 150px;background: red;display: flex;justify-content: center;align-items: center">
+      <button @click.stop='btnChild'>click me</button>
+    </div>
+    只触发一次事件
+    <button @click.once='onceClick'>@click.once</button>
+    <hr>
+    绑定一个对象
+    <button type="submit" v-on="event">绑定多个事件</button>
+  </template>
+  <div id="app">
+  </div>
+  <script>
+    const app = {
+      template: '#my-app',
+      data: () => {
+        return {
+          text: 'Hello Vue',
+          event: {
+            click: () => {
+              alert('我是点击事件')
+            },
+            mousemove: () => {
+              alert('我是鼠标移动监听')
+
+            }
+          }
+        }
+      },
+      methods: {
+        click1() {
+          this.text = this.text === 'zy!' ? 'Hello Vue' : 'zy!'
+        },
+        btnFather() {
+          alert('父级事件')
+        },
+        btnChild() {
+          alert('子级事件')
+        },
+        onceClick() {
+          alert('我只弹出一次')
+          console.log()
+         
+        }
+
+      }
+    }
+    Vue.createApp(app).mount('#app')
+  </script>
+
+</body>
+
+</html>

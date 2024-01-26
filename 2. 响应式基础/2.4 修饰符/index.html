@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style></style>
+  <script src="/vue3.js">/vue3.js</script>
+</head>
+
+<body>
+  <div id="app">
+    
+  </div>
+  <template id="myApp">
+    <button @click.stop='clickStop'>@click.stop</button>
+    <hr>
+    <input value="" @keyup.enter='keyupEnter'/>
+  </template>
+  <script>
+    const app = {
+      template: '#myApp',
+      data:()=>{
+        return {
+          
+        }
+      },
+      methods: {
+        clickStop(){
+          alert('123123')
+        },
+        keyupEnter(){
+          alert('submit')
+        }
+      }
+    }
+    Vue.createApp(app).mount('#app')
+  </script>
+</body>
+
+</html>

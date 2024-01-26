@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <script src="/vue3.js"></script>
+</head>
+
+<body>
+<div id="app">
+</div>
+<template id="my-app">
+  style绑定对象
+  <div :style='bindStyle'>
+    {{text}}
+  </div>
+</template>
+<script>
+  const app = {
+    template: '#my-app',
+    data: ()=>{
+      return {
+       text: 123,
+       bindStyle: {
+         fontSize: '2em',
+         color: 'red'
+       }
+      }
+    },
+    methods:{
+      
+    }
+  }
+  Vue.createApp(app).mount('#app')
+</script>
+</body>
+
+</html>

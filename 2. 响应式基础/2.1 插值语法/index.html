@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <script src="/vue3.js"></script>
+</head>
+
+<body>
+  <template id="my-app">
+    <button @click='test'>{{text}}</button>
+  </template>
+  <div id="app">
+    
+  </div>
+  <script>
+    const app = {
+      template: '#my-app',
+      data: function(){
+        return {
+          text: 'Hello World!'
+        }
+      },
+      methods: {
+        test(){
+          alert('Hello World!')
+        }
+      }
+    }
+    Vue.createApp(app).mount('#app')
+  </script>
+<script>
+
+</script>
+</body>
+
+</html>

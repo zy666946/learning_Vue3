@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <script src="/vue3.js"></script>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+  <template id="my-app">
+    动态绑定属性名
+    <div :[name]='data'>
+      123456
+    </div>
+  </template>
+  <script>
+    const app = {
+      template: '#my-app',
+      data: () => {
+        return {
+          name: 'style',
+          data: {
+            fontSize: '2rem',
+            color: 'red'
+          }
+        }
+      },
+      methods: {
+
+      }
+    }
+    Vue.createApp(app).mount('#app')
+  </script>
+</body>
+
+</html>

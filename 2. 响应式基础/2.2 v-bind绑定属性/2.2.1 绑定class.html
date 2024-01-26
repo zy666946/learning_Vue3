@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <script src="/vue3.js"></script>
+  <style>
+    .colorRed{
+      color: red;
+    }
+    
+    .sizeH1{
+      font-size: 2rem;
+    }
+    
+    .underLine{
+      text-decoration: underline; 
+    }
+  </style>
+</head>
+
+<body>
+  <template id="my-app">
+    绑定class字符串
+    <div :class='bindTest1'>
+      123456
+    </div>
+    绑定class对象
+    <div :class="bindTest2">
+      123456
+    </div>
+    绑定数组和数组对象
+    <div :class="bindTest3">
+      123456
+    </div>
+  </template>
+  <div id="app">
+  </div>
+  <script>
+    const app = {
+      template: '#my-app',
+      data: ()=>{
+        return {
+          bindTest1: 'colorRed',
+          bindTest2: {
+            'colorRed': true
+          },
+          bindTest3: ['colorRed','sizeH1',{underLine: true}]
+        }
+      },
+      methods: {
+        
+      }
+    }
+    
+    Vue.createApp(app).mount('#app')
+  </script>
+  
+</body>
+
+</html>

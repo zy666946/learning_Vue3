@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <script src="/vue3.js"></script>
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+  <template id="my-app">
+
+    .lazy修饰符enter后更新数据<input type="text" v-model.lazy="text1">{{text1}}
+    <hr>
+    .number修饰符转换数字为number类型<input type="text" v-model.number='text2'>数据类型为{{typeof text2}}
+    <hr>
+    .trim修饰符去除两端空白<input type="text" v-model.trim='text3'>{{text3}}
+  </template>
+  <script>
+    const app = {
+      template: '#my-app',
+      data: () => {
+        return {
+          text1: '',
+          text2: '',
+          text3: ''
+        }
+      },
+      methods: {
+
+      },
+      watch: {
+
+      }
+    }
+    Vue.createApp(app).mount('#app')
+  </script>
+</body>
+
+</html>

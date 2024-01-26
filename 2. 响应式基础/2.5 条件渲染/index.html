@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style></style>
+  <script src="/vue3.js">/vue3.js</script>
+</head>
+
+<body>
+  <div id="app">
+  </div>
+  <template id="myApp">
+    使用div套多个元素来使用if渲染时div也会被渲染
+    <br>
+    推荐使用template标签
+    <template v-if="true">
+      <h1>123</h1>
+      <h2>456</h2>
+    </template>
+    template标签不支持和 v-show 一起使用
+    <template v-show='true'>
+      <h1>123</h1>
+      <h2>456</h2>
+    </template>
+  </template>
+  <script>
+    const app = {
+      template: '#myApp',
+      data: ()=>{
+        return {
+          
+        }
+      },
+      methods: {
+        
+      }
+    }
+    Vue.createApp(app).mount('#app')
+  </script>
+</body>
+
+</html>

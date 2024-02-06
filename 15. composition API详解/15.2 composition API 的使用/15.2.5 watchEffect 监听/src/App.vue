@@ -11,7 +11,7 @@ export default {
       // 2. watchEffect 函数返回一个函数，调用这个函数可以停止监听函数，例如满足条件停止监听
       if (test.value >= 5) watchTest()
       // 3. 清除副作用
-      // watchEffect 函数接收一个 onInvalidate 函数类型的参数，
+      // watchEffect 函数接收一个 onInvalidate 函数类型的参数
       // 该函数会在所监听的响应式变量更新或停止监听时触发传入该函数的回调
       // 我们模拟一次网络请求，并在下一次监听时取消上一次的网络请求
       const timer = setTimeout(() => {
